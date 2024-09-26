@@ -41,24 +41,18 @@ void pchar(stack_t **stack, unsigned int count_n)
 void pstr(stack_t **stack, unsigned int count_n)
 {
 	stack_t *i = *stack;
-	char str[2000];
-	int j = 0;
 	(void)count_n;
 
-	memset(str, 0, 2000);
 	if (!i)
 		printf("\n");
 	while (i)
 	{
-		/*if (h->n < 1 && h->n > 127)*/
-		if (!(i->n > 64 && i->n < 91) && !(i->n > 96 && i->n < 123))
+		if (i->n > 127 || i->n <= 0)
 		{
 			break;
 		}
-		str[j] = (char)i->n;
-		j++;
+		printf("%c", i->n);
 		i = i->next;
 	}
-	printf("%s\n", str);
 }
 
